@@ -2,28 +2,60 @@ package com.marco.apps.controllers;
 
 
 import com.marco.apps.models.entity.User;
+import com.marco.apps.services.IUserService;
 import com.marco.apps.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin
 @RestController
-@RequestMapping(path= "api/v1/users")
+@RequestMapping(path= "api/v1")
 public class UserController {
-    private final UserService userService;
+    private final IUserService userService;
 
     @Autowired
     public UserController(UserService userService) {
         this.userService = userService;
     }
 
-    @GetMapping
+    @GetMapping("/users")
     public List<User> getUsers(){
-       return userService.getUsers();
+       return userService.findAll();
     }
 
+    @GetMapping("/users/{id}")
+    public User show(@PathVariable Long id){
+        return userService.findById(id);
+    }
+
+    @PostMapping("/users")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User create(@RequestBody User user){
+        return userService.save(user);
+    }
+
+
+    @PutMapping("/users/{id}")
+    @ResponseStatus(HttpStatus.CREATED)
+    public User update(@RequestBody User user, @PathVariable Long id){
+        User currentUser = userService.findById(id);
+        currentUser.setUsername(user.getUsername());
+        currentUser.setPassword(user.getPassword());
+        currentUser.setFirstName(user.getFirstName());
+        currentUser.setLastName(user.getLastName());
+        currentUser.setEmail(user.getEmail());
+        currentUser.setPremium(user.isPremium());
+
+        return userService.save(currentUser);
+    }
+
+    @DeleteMapping("/users/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void delete(@PathVariable Long id){
+        userService.delete(id);
+    }
 
 }

@@ -9,15 +9,8 @@ import java.util.Date;
 public class User implements Serializable {
 
     @Id
-    @SequenceGenerator(
-            name= "student_sequence",
-            sequenceName = "student_sequence",
-            allocationSize = 1
-    )
-    @GeneratedValue(
-            strategy = GenerationType.SEQUENCE,
-            generator = "student_sequence"
-    )
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(columnDefinition = "serial")
     private Long id;
     private String username;
     private String password;
@@ -25,7 +18,15 @@ public class User implements Serializable {
     private String lastName;
     private String email;
     private Boolean isPremium;
+    @Temporal(TemporalType.DATE)
     private Date createdAt;
+
+    @PrePersist
+    public void prePersist(){
+        createdAt = new Date();
+    }
+
+    @Temporal(TemporalType.DATE)
     private Date premiumExpiration;
 
 
@@ -37,7 +38,7 @@ public class User implements Serializable {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
-        lastName = lastName;
+        this.lastName = lastName;
         this.email = email;
         this.isPremium = isPremium;
         this.createdAt = createdAt;
@@ -48,7 +49,7 @@ public class User implements Serializable {
         this.username = username;
         this.password = password;
         this.firstName = firstName;
-        lastName = lastName;
+        this.lastName = lastName;
         this.email = email;
         this.isPremium = isPremium;
         this.createdAt = createdAt;

@@ -1,0 +1,6 @@
+-- INSERT INTO users (username, password, first_name, last_name, email, is_premium, created_at, premium_expiration) VALUES
+-- ('anton4', '1234', 'Antonio', 'Alvarado', 'antonio4@email.com', true, '2012-01-02','2012-01-02' ),
+-- ('anton5', '3456', 'Antonio2', 'Alvarado2', 'antonio5@email.com', true, '2012-01-03','2012-01-03' ),
+-- ('anton6', '456', 'Antonio3', 'Alvarado3', 'antonio6@email.com', false, '2012-01-04','2012-01-04' ),
+-- ('anton7', '8978', 'Antoni4', 'Alvarado', 'antonio7@email.com', true, '2012-01-05','2012-01-05' );
+--
