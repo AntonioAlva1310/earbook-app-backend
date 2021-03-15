@@ -47,7 +47,7 @@ public class UserController {
         currentUser.setFirstName(user.getFirstName());
         currentUser.setLastName(user.getLastName());
         currentUser.setEmail(user.getEmail());
-        currentUser.setPremium(user.isPremium());
+        currentUser.setIsPremium(user.getIsPremium());
 
         return userService.save(currentUser);
     }
