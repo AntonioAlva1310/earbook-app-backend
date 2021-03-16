@@ -79,7 +79,7 @@ public class UserService implements IUserService, UserDetailsService {
                 user
         );
         confirmationTokenService.saveConfirmationToken(confirmationToken);
-        //TODO: SEND EMAIL
+
         return token;
     }
         public int enableUser(String email) {
