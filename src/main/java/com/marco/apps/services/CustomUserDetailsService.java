@@ -1,12 +1,5 @@
 package com.marco.apps.services;
 
-import com.marco.apps.models.entity.CustomUserDetails;
-import com.marco.apps.models.entity.User;
-import com.marco.apps.repository.UserRepository;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 @Service
