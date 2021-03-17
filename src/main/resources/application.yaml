@@ -19,10 +19,10 @@ spring:
 
 
   mail:
-    host: localhost
-    port: 1025
-    username: hello
-    password: hello
+    host:  mx-s2.vivawebhost.com
+    port: 465
+    username:  earbook@chrisfuentes.me
+    password: earbook2021
 
     properties:
       mail:
