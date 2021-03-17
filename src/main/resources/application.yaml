@@ -20,7 +20,7 @@ spring:
 
   mail:
     host:  mx-s2.vivawebhost.com
-    port: 465
+    port: 26
     username:  earbook@chrisfuentes.me
     password: earbook2021
 
